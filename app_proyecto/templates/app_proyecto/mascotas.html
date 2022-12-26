@@ -1,0 +1,14 @@
+{% extends 'app_proyecto/base.html' %}
+{% block titulo%} Lista de mascotas {% endblock %}
+{% block contenido %}
+<a href='/mis-mascotas/alta'>Nueva Mascota</a>
+  {% for mascota in lista_mascotas %}
+      <ul>
+          <li> 
+            Id: {{mascota.id}} Nombre: {{mascota.nombre}}, Dueño: {{mascota.dueño}}, Raza: {{mascota.raza}}
+            <a href='actualizar/{{ mascota.id }}'>Actualizar</a>
+            <a href='borrar/{{ mascota.id }}'>Borrar</a>
+          </li>
+      </ul>
+  {% endfor %}
+{% endblock %}

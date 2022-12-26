@@ -1,0 +1,8 @@
+{% extends 'app_2/base.html' %}
+
+{% block contenido %}
+<ul>
+{% for Post in objest_list %}
+<li>{{post.titulo}}</li>
+</ul>
+{% endblock %}

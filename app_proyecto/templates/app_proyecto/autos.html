@@ -1,0 +1,14 @@
+{% extends 'app_proyecto/base.html' %}
+{% block titulo%} Lista de autos {% endblock %}
+{% block contenido %}
+<a href='/mis-autos/alta'>Nuevo Auto</a>
+  {% for Auto in lista_autos %}
+      <ul>
+          <li> 
+            Id: {{autos.id}} Marca: {{auto.marca}}, Dueño: {{auto.dueño}}, numero_patente: {{auto.numero_patente}}
+            <a href='actualizar/{{ auto.id }}'>Actualizar</a>
+            <a href='borrar/{{ auto.id }}'>Borrar</a>
+          </li>
+      </ul>
+  {% endfor %}
+{% endblock %}
