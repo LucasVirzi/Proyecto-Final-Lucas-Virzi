@@ -1,8 +1,22 @@
 {% extends 'app_2/base.html' %}
 
 {% block contenido %}
+{% if user.is_superuser %}
+    <a href="{% url'app-2-crear' %}">Crear Post</a>
+    <a href="{% url'app-2-avatars-actualizar' user.id %}">Actualizar Avatar</a>
+    <a href="{% url'app-2-users-actualizar' user.id %}">Actualizar Profile</a>
+    <a href="{% url'app-2-users-mensajes-listar' user.id %}">Mensajes</a>
+{% endif %}
 <ul>
-{% for Post in objest_list %}
-<li>{{post.titulo}}</li>
+{% for Post in object_list %}
+    <li>
+        {{post.publicado_el}} - - {{post.titulo}}
+        {% if user.is_superuser %}
+        <a href="{% url 'app-2-borrar' post.id %}">Borrar</a>
+        <a href="{% url 'app-2-actualizar' post.id %}">Actualizar</a>
+        {% endif %}
+        <a href="{% url 'app-2-detalle' post.id %}">Ver</a>
+    </li>
+{% endfor %}
 </ul>
 {% endblock %}

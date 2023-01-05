@@ -1,0 +1,12 @@
+{% extends 'app_2/base.html' %}
+
+{% block contenido %}
+<ul>
+{% for mensaje in object_list %}
+    <li>
+        {{mensaje.enviado_el}} - - {{mensaje.email}} - - {{mensaje.nombre}}
+        <a href="{% url 'app-2-detalle' post.id %}">Ver</a>
+    </li>
+{% endfor %}
+</ul>
+{% endblock %}
